@@ -72,21 +72,8 @@ public class Window extends JFrame {
                     jfc = new JFileChooser();
                     jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
                     jfc.showDialog(new Label(),"选择加密文件");
-                    File file = jfc.getSelectedFile();
-                    try {
-                        BufferedReader br = new BufferedReader(new FileReader(file));
-                        String str;
-                        while ((str = br.readLine()) != null) {
-                            System.out.println(str);
-                        }
-                    } catch (FileNotFoundException ex) {
-                        ex.printStackTrace();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                    /*
-                    加密程序
-                     */
+                    Encrypt enf = new Encrypt();
+                    enf.encrypt(jfc.getSelectedFile());
                     result.setText("加密成功!");
                 }
             });
@@ -103,9 +90,11 @@ public class Window extends JFrame {
             decode.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    /*
-                    解密程序
-                     */
+                    jfc = new JFileChooser();
+                    jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+                    jfc.showDialog(new Label(),"选择加密文件");
+                    Decode def = new Decode();
+                    def.decode(jfc.getSelectedFile());
                     result.setText("解密成功!");
                 }
             });
