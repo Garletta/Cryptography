@@ -123,7 +123,7 @@ public class Window extends JFrame {
 
         @Override
         protected void paintComponent(Graphics g) { //主体背景
-            ImageIcon icon = new ImageIcon(new File("").getAbsolutePath() + "/Images/background1.jpg");
+            ImageIcon icon = new ImageIcon(new File("").getAbsolutePath() + "/Images/background.jpg");
             Image image = icon.getImage();
             g.drawImage(image,0,0,this.getWidth(),this.getHeight(),this);
         }
