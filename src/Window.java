@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
+//信息安全小工具主窗体
 public class Window extends JFrame {
 
     private JLabel welcome;
@@ -22,14 +23,15 @@ public class Window extends JFrame {
     }
 
     private void initWindow() {
-        //设置窗体大小、位置、布局、关闭操作、可见性
+        //设置窗体大小、位置、窗体大小固定、关闭操作、可见性
         setSize(400,300);
         setLocationRelativeTo(null);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        //加入中间容器（自适应窗体大小），传入主体句柄便于修改主体标题
+        //加入中间容器（自适应窗体大小），传入主体句柄便于数据修改
         MyJPanel panel = new MyJPanel(this);
-        add(panel,BorderLayout.CENTER);
+        setContentPane(panel);
 
         //使窗体可见
         setVisible(true);
@@ -43,24 +45,22 @@ public class Window extends JFrame {
         public MyJPanel(Window window) {
             super();
             this.window = window; //保存传参句柄
-            initMyJPanel();
+            initMyJPanel();     //初始化
         }
 
         public void initMyJPanel() {
 
-            //设置中间容器的布局
+            //设置中间容器为流式布局
             setLayout(new FlowLayout(FlowLayout.CENTER,30,30));
 
             //欢迎语
             welcome = new JLabel("欢迎使用加密解密小工具", JLabel.CENTER);
-            welcome.setPreferredSize(new Dimension(400,40));
             welcome.setFont(new Font("微软雅黑", 1, 30));
             welcome.setForeground(Color.BLUE);
             add(welcome,BorderLayout.NORTH);
 
             //加密
             encrypt = new JButton("加密");
-            encrypt.setPreferredSize(new Dimension(100,40));
             encrypt.setFont(new Font("楷体", 1, 30));
             encrypt.setFocusPainted(false);
             encrypt.setBorderPainted(false);
@@ -81,7 +81,6 @@ public class Window extends JFrame {
 
             //解密
             decode = new JButton("解密");
-            decode.setPreferredSize(new Dimension(100,40));
             decode.setFont(new Font("楷体", 1, 30));
             decode.setFocusPainted(false);
             decode.setBorderPainted(false);
@@ -102,7 +101,6 @@ public class Window extends JFrame {
 
             //结果
             result = new JLabel("", JLabel.CENTER);
-            result.setPreferredSize(new Dimension(400,40));
             result.setFont(new Font("微软雅黑", 1, 30));
             result.setForeground(Color.ORANGE);
             add(result,BorderLayout.SOUTH);
@@ -112,7 +110,7 @@ public class Window extends JFrame {
 
         @Override
         protected void paintComponent(Graphics g) { //主体背景
-            ImageIcon icon = new ImageIcon(new File("").getAbsolutePath() + "/Images/background.jpg");
+            ImageIcon icon = new ImageIcon(Window.class.getResource("/Images/background.jpg"));
             Image image = icon.getImage();
             g.drawImage(image,0,0,this.getWidth(),this.getHeight(),this);
         }
