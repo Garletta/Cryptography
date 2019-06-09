@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bfe6ca8-09ec-42a0-89e3-3c12236e7dc0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DESAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DESAlgorithm.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -34,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DESAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="777">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="-135">
+              <caret line="43" column="40" lean-forward="true" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,9 +111,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-8" />
-    <option name="width" value="1498" />
+    <option name="width" value="1543" />
     <option name="height" value="1398" />
   </component>
   <component name="ProjectView">
@@ -203,7 +202,7 @@
       <workItem from="1559918095163" duration="3497000" />
       <workItem from="1559971481358" duration="6474000" />
       <workItem from="1560053757203" duration="1016000" />
-      <workItem from="1560056711663" duration="8528000" />
+      <workItem from="1560056711663" duration="9501000" />
     </task>
     <task id="LOCAL-00001" summary="update DESAlgorithm">
       <created>1560069475482</created>
@@ -216,13 +215,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30410000" />
+    <option name="totallyTimeSpent" value="31383000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="1198" height="1118" extended-state="0" />
+    <frame x="-6" y="0" width="1234" height="1118" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18070175" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17517006" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -349,8 +348,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DESAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="-135">
+          <caret line="43" column="40" lean-forward="true" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -416,7 +415,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
