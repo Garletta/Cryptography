@@ -1,76 +1,41 @@
 ```java
-import javax.swing.*;
-import java.awt.*;
-import java.io.*;
+package Action;
 
-public class DESAlgorithm {
+import DAO.BookDao;
+import Table.TBook;
+import com.opensymphony.xwork2.ActionContext;
 
-    private JFileChooser jfc;
-    private StringBuffer sb;
-    private FileInputStream fis;
-    private FileWriter fw;
+import java.util.ArrayList;
+import java.util.Map;
 
-    public DESAlgorithm() {
-        sb = new StringBuffer();
+public class queryBookByKeyWordAction {
+
+    private String keyWord;
+    private BookDao bookDao;
+
+    public String execute() {
+        ArrayList<TBook> list = bookDao.queryBookByKeyWord(keyWord);
+        Map session = ActionContext.getContext().getSession();
+        session.put("list",list);
+        return "success";
     }
 
-    public void Encrypt() {
-        File chooseFile = OpenFile("");
-        ReadFile(chooseFile);
-        for(int i = 0;i < sb.length();i++) {
-            sb.setCharAt(i, (char) ((sb.charAt(i) + 10) % 128));
-        }
-        WriteFile(chooseFile);
+    public String getKeyWord() {
+        return keyWord;
     }
 
-    public void Decode() {
-        File chooseFile = OpenFile("");
-        ReadFile(chooseFile);
-        for(int i = 0;i < sb.length();i++) {
-            sb.setCharAt(i, (char) ((sb.charAt(i) + 118) % 128));
-        }
-        WriteFile(chooseFile);
+    public void setKeyWord(String keyWord) {
+        this.keyWord = keyWord;
     }
 
-    public File OpenFile(String Title) {
-        jfc = new JFileChooser();
-        jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        jfc.showDialog(new Label(),Title);
-        return jfc.getSelectedFile();
+    public BookDao getBookDao() {
+        return bookDao;
     }
 
-    public void ReadFile(File file) {
-        try {
-            int temp;
-            fis = new FileInputStream(file);
-            while((temp = fis.read()) != -1) {
-                sb.append((char)temp);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                fis.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void WriteFile(File file) {
-        try {
-            fw = new FileWriter(file);
-            fw.write(sb.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                fw.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public void setBookDao(BookDao bookDao) {
+        this.bookDao = bookDao;
     }
 }
+
 ```
 

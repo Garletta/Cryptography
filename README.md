@@ -1,6 +1,11 @@
 # Cryptography
-信息安全密码学之自制文件加解密小工具
+信息安全密码学之自制文件加解密小工具  
+[我的github](https://github.com/Garletta/Cryptography)
 
-## 日志
-* 2019.6.7 构建可视化界面  
-* 成功支持ASCll字符的代替密码算法  
+## 环境
+* IDE：`Intellij IDEA  `
+* JDK：`JAVA 1.8  `
+
+## TIPS
+* `Cryptography.jar` 为打包好的可执行程序，在 `JRE 1.8` 以上的环境中可直接双击运行  
+* `text.md` 为测试文件，也可自行选择其他任意文件  

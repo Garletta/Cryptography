@@ -18,7 +18,7 @@ public class Window extends JFrame {
     }
 
     public Window() {
-        super("林氏信息安全小工具");   //标题
+        super("信息安全小工具");   //标题
         initWindow();   //初始化
     }
 
@@ -54,10 +54,10 @@ public class Window extends JFrame {
             setLayout(new FlowLayout(FlowLayout.CENTER,30,30));
 
             //欢迎语
-            welcome = new JLabel("欢迎使用林氏加解密小工具", JLabel.CENTER);
+            welcome = new JLabel("欢迎使用加解密小工具", JLabel.CENTER);
             welcome.setFont(new Font("微软雅黑", 1, 30));
             welcome.setForeground(Color.BLUE);
-            add(welcome,BorderLayout.NORTH);
+            add(welcome);
 
             //加密
             encrypt = new JButton("加密");
@@ -97,7 +97,7 @@ public class Window extends JFrame {
             result = new JLabel("", JLabel.CENTER);
             result.setFont(new Font("微软雅黑", 1, 30));
             result.setForeground(Color.ORANGE);
-            add(result,BorderLayout.SOUTH);
+            add(result);
 
             setVisible(true);
         }

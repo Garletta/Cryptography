@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 
+//结合ECB和CBC工作模式的DES加密算法
 public class DESAlgorithm {
 
     private JFileChooser jfc;   //文件选择器
