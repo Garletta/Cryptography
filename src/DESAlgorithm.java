@@ -10,18 +10,28 @@ public class DESAlgorithm {
     private FileInputStream fis;//文件输入流
     private FileWriter fw;      //文件输出流
     private int key;            //密钥
+    private int initialization; //初始化向量
 
     public DESAlgorithm() {
         sb = new StringBuffer();
         key = 20;
+        initialization = 127;
     }
 
     //加密方法
     public void Encrypt() {
         chooseFile = OpenFile("请选择待加密文件");
         ReadFile();
+        //ECB
         for(int i = 0;i < sb.length();i++) {
             sb.setCharAt(i, (char) ((sb.charAt(i) + key) % 128));
+        }
+        //CBC
+        int init = initialization;
+        for(int i = 0;i < sb.length();i++) {
+            sb.setCharAt(i, (char) (init ^ sb.charAt(i)));
+            sb.setCharAt(i, (char) ((sb.charAt(i) + key) % 128));
+            init = sb.charAt(i);
         }
         WriteFile();
     }
@@ -30,13 +40,23 @@ public class DESAlgorithm {
     public void Decode() {
         chooseFile = OpenFile("请选择待解密文件");
         ReadFile();
+        //CBC
+        int init = initialization;
+        int next = init;
+        for(int i = 0;i < sb.length();i++) {
+            next = sb.charAt(i);
+            sb.setCharAt(i, (char) ((sb.charAt(i) + 128 - key) % 128));
+            sb.setCharAt(i, (char) (init ^ sb.charAt(i)));
+            init = next;
+        }
+        //ECB
         for(int i = 0;i < sb.length();i++) {
             sb.setCharAt(i, (char) ((sb.charAt(i) + 128 - key) % 128));
         }
         WriteFile();
     }
 
-    //实验文件选择器打开待操作文件
+    //使用文件选择器打开待操作文件
     public File OpenFile(String Title) {
         jfc = new JFileChooser();
         jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
