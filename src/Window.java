@@ -7,18 +7,18 @@ import java.io.*;
 //信息安全小工具主窗体
 public class Window extends JFrame {
 
-    private JLabel welcome;
-    private JLabel result;
-    private JFileChooser jfc;
-    private JButton encrypt;
-    private JButton decode;
+    private JLabel welcome;     //欢迎语
+    private JLabel result;      //加解密结果
+    private JButton encrypt;    //加密
+    private JButton decode;     //解密
+    private DESAlgorithm des;   //DES算法
 
     public static void main(String[] args) {
         new Window();
     }
 
     public Window() {
-        super("信息安全小工具");   //标题
+        super("林氏信息安全小工具");   //标题
         initWindow();   //初始化
     }
 
@@ -54,7 +54,7 @@ public class Window extends JFrame {
             setLayout(new FlowLayout(FlowLayout.CENTER,30,30));
 
             //欢迎语
-            welcome = new JLabel("欢迎使用加密解密小工具", JLabel.CENTER);
+            welcome = new JLabel("欢迎使用林氏加解密小工具", JLabel.CENTER);
             welcome.setFont(new Font("微软雅黑", 1, 30));
             welcome.setForeground(Color.BLUE);
             add(welcome,BorderLayout.NORTH);
@@ -69,11 +69,8 @@ public class Window extends JFrame {
             encrypt.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    jfc = new JFileChooser();
-                    jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-                    jfc.showDialog(new Label(),"选择加密文件");
-                    Encrypt enf = new Encrypt();
-                    enf.encrypt(jfc.getSelectedFile());
+                    des = new DESAlgorithm();
+                    des.Encrypt();
                     result.setText("加密成功!");
                 }
             });
@@ -89,17 +86,14 @@ public class Window extends JFrame {
             decode.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    jfc = new JFileChooser();
-                    jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-                    jfc.showDialog(new Label(),"选择加密文件");
-                    Decode def = new Decode();
-                    def.decode(jfc.getSelectedFile());
+                    des = new DESAlgorithm();
+                    des.Decode();
                     result.setText("解密成功!");
                 }
             });
             add(decode);
 
-            //结果
+            //加解密结果
             result = new JLabel("", JLabel.CENTER);
             result.setFont(new Font("微软雅黑", 1, 30));
             result.setForeground(Color.ORANGE);
